@@ -57,6 +57,15 @@ node default {
   include git
   include hub
   include nginx
+  
+  include mysql
+  include java
+  include virtualbox
+  include vagrant //complicated double check how to do this 
+  include intellij  
+  include hipchat
+  include include apachedirectorystudio
+  
 
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
@@ -74,6 +83,13 @@ node default {
   ruby::version { '2.1.0': }
   ruby::version { '2.1.1': }
   ruby::version { '2.1.2': }
+  
+  nodejs{'v0.10':}
+  class { 'nodejs::global" : version => 'v0.10'}
+
+  ##install for bower and also grunt
+  nodejs::module { 'grunt-cli': node_version => 'v0.10' }
+  nodejs::module { 'bower': node_version=> 'v0.10' }  
 
   # common, useful packages
   package {
@@ -89,3 +105,16 @@ node default {
     target => $boxen::config::repodir
   }
 }
+ ## intellij
+class { 'intellij':
+  edition => 'community',
+}
+class { 'intellij':
+  edition => 'ultimate',
+    version => '12.1.4'
+}
+
+# Vagrant 
+class { 'vagrant': }
+
+

@@ -61,7 +61,21 @@ github "xquartz",     "1.2.1"
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
 # github "elasticsearch", "2.7.2"
-# github "mysql",         "2.0.1"
+  github "mysql",         "2.0.1"
 # github "postgresql",  "3.0.3"
 # github "redis",       "3.1.0"
 # github "sysctl",      "1.0.1"
+
+
+# Modules needed to configure for delivery teams
+
+
+  github "java",    	"1.8.2"
+  github "virtualBox",	"1.0.13" 
+  github "vagrant",	"3.3.0"
+  github "intellij",	"1.5.1"
+  github "hipchat",	"1.1.3"
+  github "apache",	"0.0.3", :repo => "jplana/puppet-apachedirectorystudio"  
+
+
+
